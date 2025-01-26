@@ -1,4 +1,14 @@
 public class ServicioBase implements IServicioDeEmergencia {
+    //idicar atributos propios de las bases
+    private String id;
+    private int personalDisponibles;
+    private int combustible;
+    // hacer constructor de servicio base
+    public ServicioBase(String id, int personalDisponibles, int combustible) {
+        this.id = id;
+        this.personalDisponibles = personalDisponibles; 
+        this.combustible = combustible;        
+    }
 
     @Override
     public String getId() {
