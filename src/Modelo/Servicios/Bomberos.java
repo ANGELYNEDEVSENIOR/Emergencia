@@ -1,3 +1,5 @@
+import Modelo.Emergencia;
+
 public class Bomberos extends ServicioBase{
     public Bomberos(String id, int personalDisponibles, int combustible) {
         super(id, personalDisponibles, combustible);

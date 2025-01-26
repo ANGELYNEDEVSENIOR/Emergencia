@@ -1,3 +1,4 @@
+package Modelo;
 public abstract class Emergencia {
     //encapcsulamos los atributos
 private String tipo;

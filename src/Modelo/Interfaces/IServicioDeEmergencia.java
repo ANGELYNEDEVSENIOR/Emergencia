@@ -1,3 +1,4 @@
+package Modelo.Interfaces;
 public interface IServicioDeEmergencia {
     //metodos
 String getId(); 

@@ -1,3 +1,7 @@
+package Modelo.Servicios;
+import Modelo.Emergencia;
+import Modelo.Interfaces.IServicioDeEmergencia;
+
 public abstract class ServicioBase implements IServicioDeEmergencia {
     //idicar atributos propios de las bases
     private String id;
