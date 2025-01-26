@@ -1,4 +1,7 @@
 package Modelo.Interfaces;
+
+import Modelo.Emergencia;
+
 public interface IServicioDeEmergencia {
     //metodos
 String getId(); 
@@ -17,6 +20,6 @@ void gastarCombustible(int cantidad);
 
 void tanquearCombustible(int cantidad);
 
-//void atenderEmergencia(Emergencia emergencia);
+void atenderEmergencia(Emergencia emergencia);
 
 }

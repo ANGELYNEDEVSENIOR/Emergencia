@@ -81,8 +81,6 @@ public class SistemaEmergencias implements SujetoEmergencias {
         // Filtrar emergencias pendientes
                 .filter(e -> !e.isAtendida())
                 // Ordenar emergencias por prioridad  
-                //ESTO LO PUSE YO  
-                .sorted((e1, e2) -> strategyPrioridad.calcularPrioridad(e1) - strategyPrioridad.calcularPrioridad(e2))
                 .collect(Collectors.toList());
     }
     public void asignarRecursosAEmergencia(Emergencia emergencia) {
@@ -125,8 +123,6 @@ public class SistemaEmergencias implements SujetoEmergencias {
             System.out.println("Esta emergencia ya fue atendida.");
             return;
         }
-        //ESTE LO PUSE YO
-        System.out.println("-> Atendiendo emergencia: " + e.getDescripcion());
         e.IniciarAtencion();
         try {
             Thread.sleep(500);
@@ -155,5 +151,18 @@ public void mostrarEstadisticas() {
             .filter(e -> !e.isAtendida())
             .count();
     System.out.println("Emergencias no atendidas: " + noAtendidas);
+}
+public void finalizarJornada() {
+    // este metodo se ejecuta al final de la jornada
+    mostrarEstadisticas();
+    System.out.println("Guardando registro del día (simulado)...");
+    // Lógica para guardar el registro del día
+    System.out.println("Sistema preparado para siguiente ciclo.");
+}
+
+public void setEstrategiaPrioridad(StrategyPrioridad nuevaEstrategia) {
+    // Cambiamos la estrategia de prioridad
+    // ademas se notifica a los recursos
+    strategyPrioridad = nuevaEstrategia;
 }
 }

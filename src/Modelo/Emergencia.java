@@ -75,8 +75,8 @@ public long calcularTiempoAtencion() {
     return this.tiempoFinAtencion - this.tiempoInicioAtencion;
 }
 //metodo para mostrar la emergencia
-public String getDescripcion(){
-    return String.format("%s en %s(gravedad: s%)",tipo,ubicacion,nivelGravedad);
+public String getDescripcion() {
+    return String.format("%s en %s (gravedad: %s)", tipo, ubicacion, nivelGravedad);
 }
 //metodo para mostrar la emergencia
 public String toString () {

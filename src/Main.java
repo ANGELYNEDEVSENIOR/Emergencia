@@ -12,11 +12,11 @@ import untils.TipoEmergencia;
 
 public class Main{
     public static void main(String[] args) { 
-    }
+    
 SistemaEmergencias sistema = SistemaEmergencias.getInstancia();
 
-        inicializarRecursosDemo(sistema);
-        
+       inicializarRecursosDemo(sistema);
+
         Scanner sc = new Scanner(System.in);
         boolean salir = false;
 
@@ -34,11 +34,7 @@ SistemaEmergencias sistema = SistemaEmergencias.getInstancia();
             } catch (NumberFormatException e) {
                 System.out.println("Opción inválida. Intente de nuevo.");
                 continue;
-            }
-//            if (opcion < 1 || opcion > 5) {
-//                System.out.println("Opción inválida. Intente de nuevo.");
-//                continue;
-//            }
+            }        
 
             switch (opcion) {
                 case 1:
@@ -155,3 +151,4 @@ private static void inicializarRecursosDemo(SistemaEmergencias sistema) {
         sistema.asignarRecursosAEmergencia(emergencia);
         sistema.atenderEmergencia(emergencia);
     }
+}
