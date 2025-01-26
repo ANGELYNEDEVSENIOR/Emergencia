@@ -1,4 +1,4 @@
-public class ServicioBase implements IServicioDeEmergencia {
+public abstract class ServicioBase implements IServicioDeEmergencia {
     //idicar atributos propios de las bases
     private String id;
     private int personalDisponibles;
@@ -57,10 +57,13 @@ public class ServicioBase implements IServicioDeEmergencia {
         combustible += cantidad;
     }
 
+    //metodo para atender la emergencia abstracto
+    public abstract void atenderEmergencia(Emergencia emergencia);
+
     @Override
-    public void atenderEmergencia(Emergencia emergencia) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'atenderEmergencia'");
+    public String toString() {
+        return "ServicioBase [id=" + id + ", personalDisponibles=" + personalDisponibles + ", combustible="
+                + combustible + "]";
     }
 
 }

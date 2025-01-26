@@ -16,6 +16,6 @@ void gastarCombustible(int cantidad);
 
 void tanquearCombustible(int cantidad);
 
-void atenderEmergencia(Emergencia emergencia);
+//void atenderEmergencia(Emergencia emergencia);
 
 }
