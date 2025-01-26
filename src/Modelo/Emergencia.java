@@ -1,15 +1,18 @@
 package Modelo;
+
+import untils.NivelGravedad;
+
 public abstract class Emergencia {
     //encapcsulamos los atributos
 private String tipo;
 private String ubicacion;
-private int nivelGravedad;//3 alto, 2 medio, 1 bajo
+private NivelGravedad nivelGravedad;//3 alto, 2 medio, 1 bajo
 private int tiempoRespuesta;// en minutos
 private boolean atendida;
 private long tiempoInicioAtencion;
 private long tiempoFinAtencion;
 //definimos 
-public Emergencia(String tipo, String ubicacion, int nivelGravedad, int tiempoRespuesta) {
+public Emergencia(String tipo, String ubicacion, NivelGravedad nivelGravedad, int tiempoRespuesta) {
     this.tipo = tipo;
     this.ubicacion = ubicacion;
     this.nivelGravedad = nivelGravedad;
@@ -28,10 +31,10 @@ public String getUbicacion() {
 public void setUbicacion(String ubicacion) {
     this.ubicacion = ubicacion;
 }
-public int getNivelGravedad() {
+public NivelGravedad getNivelGravedad() {
     return nivelGravedad;
 }
-public void setNivelGravedad(int nivelGravedad) {
+public void setNivelGravedad(NivelGravedad nivelGravedad) {
     this.nivelGravedad = nivelGravedad;
 }
 public int getTiempoRespuesta() {
