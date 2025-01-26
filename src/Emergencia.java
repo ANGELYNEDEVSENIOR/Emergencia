@@ -57,5 +57,18 @@ public long getTiempoFinAtencion() {
 public void setTiempoFinAtencion(long tiempoFinAtencion) {
     this.tiempoFinAtencion = tiempoFinAtencion;
 }
-
+//metodo para atender la emergencia
+public void IniciarAtencion() {
+    this.tiempoInicioAtencion = System.currentTimeMillis();  
+}
+public void FinalizarAtencion() {
+    this.atendida = true;
+    this.tiempoFinAtencion = System.currentTimeMillis();
+}
+public long calcularTiempoAtencion() {
+    return this.tiempoFinAtencion - this.tiempoInicioAtencion;
+}
+public String getDescripcion(){
+    return String.format("%s en %s(gravedad: s%)",tipo,ubicacion,nivelGravedad);
+}
 }
