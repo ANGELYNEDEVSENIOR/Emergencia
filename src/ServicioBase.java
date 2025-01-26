@@ -12,50 +12,49 @@ public class ServicioBase implements IServicioDeEmergencia {
 
     @Override
     public String getId() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getId'");
+        return id;
     }
 
     @Override
     public int getPersonalDisponibles() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPersonalDisponibles'");
+      return personalDisponibles;
     }
 
     @Override
     public int getCombstible() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getCombstible'");
+      return combustible;
     }
 
     @Override
     public boolean estaDisponible() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'estaDisponible'");
+        return personalDisponibles > 0 && combustible > 0;
+        // si hay personal disponible y combustible disponible
     }
 
     @Override
-    public void asignarPersonal(int personal) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'asignarPersonal'");
+    //asignar personal
+    public void asignarPersonal(int cantidad) {
+        if(cantidad <= personalDisponibles){
+            personalDisponibles -= cantidad;
+        }else{
+            System.out.println("No hay suficiente personal disponible"+ id);
+        }
     }
 
     @Override
-    public void liberarPersonal(int personal) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'liberarPersonal'");
+    public void liberarPersonal(int cantidad) {
+        personalDisponibles += cantidad;
     }
 
     @Override
-    public void asignarCombustible(int combustible) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'asignarCombustible'");
+    public void gastarCombustible(int cantidad) {
+        combustible =Math.max(0, combustible - cantidad);
+        //si la cantidad de combustible es mayor a 0 entonces lo restamos de lo contrario lo ponemos en 0
     }
 
     @Override
-    public void liberarCombustible(int combustible) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'liberarCombustible'");
+    public void tanquearCombustible(int cantidad) {
+        combustible += cantidad;
     }
 
     @Override

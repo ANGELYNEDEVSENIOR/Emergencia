@@ -8,13 +8,13 @@ int getCombstible();
 
 boolean estaDisponible();
 
-void asignarPersonal(int personal);
+void asignarPersonal(int cantidad);
 
-void liberarPersonal(int personal);
+void liberarPersonal(int cantidad);
 
-void asignarCombustible(int combustible);
+void gastarCombustible(int cantidad);
 
-void liberarCombustible(int combustible);
+void tanquearCombustible(int cantidad);
 
 void atenderEmergencia(Emergencia emergencia);
 
