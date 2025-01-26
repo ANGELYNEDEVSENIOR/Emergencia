@@ -127,7 +127,33 @@ public class SistemaEmergencias implements SujetoEmergencias {
         }
         //ESTE LO PUSE YO
         System.out.println("-> Atendiendo emergencia: " + e.getDescripcion());
-        e.iniciarAtencion();
+        e.IniciarAtencion();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
 
- 
+        e.FinalizarAtencion();
+        System.out.println("Emergencia atendida: " + e.getDescripcion());
+
+        emergenciasAtendidas++;
+        tiempoTotalAtencion += e.getTiempoRespuesta();
+}
+public void mostrarEstadisticas() {
+    System.out.println("\n=== ESTAS SON LAS ESTADÍSTICAS DEL DÍA ===");
+    System.out.println("Emergencias atendidas: " + emergenciasAtendidas);
+ // segun la cantidad de emergencias atendidas se calcula el promedio
+    long promedioMs = 0;
+    if (emergenciasAtendidas > 0) {
+        promedioMs = tiempoTotalAtencion / emergenciasAtendidas;
+    }
+    double promedioSeg = promedioMs / 1000.0;
+    System.out.println("Tiempo promedio de respuesta: " + promedioSeg + " seg.");
+// segun la cantidad de emergencias atendidas se calcula la cantidad de emergencias no atendidas
+    long noAtendidas = ListaEmergencias.stream()
+            .filter(e -> !e.isAtendida())
+            .count();
+    System.out.println("Emergencias no atendidas: " + noAtendidas);
+}
 }
