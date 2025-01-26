@@ -62,28 +62,61 @@ public class SistemaEmergencias implements SujetoEmergencias {
     }
     public void mostrarEstadoRecursos() {
         System.out.println("\n=== EL ESTADO ACTUAL DE RECURSOS ===");
-        for (IServicioEmergencia r : ListaRecursos) {
+        for (IServicioDeEmergencia r : ListaRecursos) {
             System.out.println(r.toString());
         }
     }
 // Ejemplo de uso de Lambda para filtrar recursos disponibles
-    public List<IServicioEmergencia> filtrarRecursosDisponibles() {
-        return listaRecursos.stream()
+    public List<IServicioDeEmergencia> filtrarRecursosDisponibles() {
+        return ListaRecursos.stream()
                 .filter(r -> r.estaDisponible())
                 .collect(Collectors.toList());
     }
     public void registrarNuevaEmergencia(Emergencia e) {
-        listaEmergencias.add(e);
+        ListaEmergencias.add(e);
         notificarEmergencias(e);
     }
     public List<Emergencia> getEmergenciasPendientes() {
-        return listaEmergencias.stream()
+        return ListaEmergencias.stream()
+        // Filtrar emergencias pendientes
                 .filter(e -> !e.isAtendida())
+                // Ordenar emergencias por prioridad  
+                //ESTO LO PUSE YO  
+                .sorted((e1, e2) -> strategyPrioridad.calcularPrioridad(e1) - strategyPrioridad.calcularPrioridad(e2))
                 .collect(Collectors.toList());
     }
-    public void registrarNuevaEmergencia(Emergencia e) {
-        listaEmergencias.add(e);
-        notificarEmergencias(e);
+    public void asignarRecursosAEmergencia(Emergencia emergencia) {
+        // Buscamos recursos disponibles
+        List<IServicioDeEmergencia> disponibles = filtrarRecursosDisponibles();
+        if (disponibles.isEmpty()) {
+            System.out.println("No hay recursos disponibles para esta emergencia.");
+            return;
+        }
+        System.out.println("-> Asignando recursos automáticamente...");
+
+        if (emergencia instanceof Incendio) {
+            for (IServicioDeEmergencia r : disponibles) {
+                if (r instanceof Bomberos) {
+                    r.atenderEmergencia(emergencia);
+                    break;
+                }
+            }
+        } else if (emergencia instanceof AccidenteVehicular) {
+            for (IServicioDeEmergencia r : disponibles) {
+                if (r instanceof Ambulancia) {
+                    r.atenderEmergencia(emergencia);
+                    break;
+                }
+            }
+        } else if (emergencia instanceof Robo) {
+            for (IServicioDeEmergencia r : disponibles) {
+                if (r instanceof Policia) {
+                    r.atenderEmergencia(emergencia);
+                    break;
+                }
+            }
+        }
     }
- //vamos a centralizar la logica del sistema de emergencias
+  
+ 
 }
