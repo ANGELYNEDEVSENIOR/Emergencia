@@ -10,7 +10,7 @@ public class Bomberos extends ServicioBase{
        System.out.println("-> [Bomberos" + getId() + "]: "+emergencia.getDescripcion());
        //se muestra la emergencia
        //getDescripcion nos devueñve la informacion de la emergencia
-       asignarPersonal(1);
+       asignarPersonal(5);
        gastarCombustible(10);
     }
 

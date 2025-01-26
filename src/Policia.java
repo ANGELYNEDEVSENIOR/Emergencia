@@ -10,7 +10,7 @@ public class Policia  extends ServicioBase{
        System.out.println("-> [Policias" + getId() + "]: "+emergencia.getDescripcion());
        //se muestra la emergencia
        //getDescripcion nos devueñve la informacion de la emergencia
-       asignarPersonal(1);
-       gastarCombustible(10);
+       asignarPersonal(2);
+       gastarCombustible(3);
     }
 }

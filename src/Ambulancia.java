@@ -10,7 +10,7 @@ public class Ambulancia  extends ServicioBase {
        System.out.println("-> [Paramedicos" + getId() + "]: "+emergencia.getDescripcion());
        //se muestra la emergencia
        //getDescripcion nos devueñve la informacion de la emergencia
-       asignarPersonal(1);
-       gastarCombustible(10);
+       asignarPersonal(3);
+       gastarCombustible(5);
     }
 }
