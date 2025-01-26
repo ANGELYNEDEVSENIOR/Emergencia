@@ -61,14 +61,21 @@ public void setTiempoFinAtencion(long tiempoFinAtencion) {
 public void IniciarAtencion() {
     this.tiempoInicioAtencion = System.currentTimeMillis();  
 }
+//metodo para finalizar la atencion
 public void FinalizarAtencion() {
     this.atendida = true;
     this.tiempoFinAtencion = System.currentTimeMillis();
 }
+//metodo para calcular el tiempo de atencion
 public long calcularTiempoAtencion() {
     return this.tiempoFinAtencion - this.tiempoInicioAtencion;
 }
+//metodo para mostrar la emergencia
 public String getDescripcion(){
     return String.format("%s en %s(gravedad: s%)",tipo,ubicacion,nivelGravedad);
+}
+//metodo para mostrar la emergencia
+public String toString () {
+    return getDescripcion()+ "Tiempo estimado: " +tiempoRespuesta + "minutos";
 }
 }
