@@ -1,3 +1,4 @@
+package Modelo.Servicios;
 import Modelo.Emergencia;
 
 public class Bomberos extends ServicioBase{
