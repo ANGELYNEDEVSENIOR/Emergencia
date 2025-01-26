@@ -6,8 +6,12 @@ public class Bomberos extends ServicioBase{
 
     @Override
     public void atenderEmergencia(Emergencia emergencia) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'atenderEmergencia'");
+       System.out.println("Los bomberos estan en camino para atender la emergencia!!!");
+       System.out.println("-> [Bomberos" + getId() + "]: "+emergencia.getDescripcion());
+       //se muestra la emergencia
+       //getDescripcion nos devueñve la informacion de la emergencia
+       asignarPersonal(1);
+       gastarCombustible(10);
     }
 
 }
