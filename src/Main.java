@@ -16,7 +16,7 @@ public class Main{
 SistemaEmergencias sistema = SistemaEmergencias.getInstancia();
 
         inicializarRecursosDemo(sistema);
-
+        
         Scanner sc = new Scanner(System.in);
         boolean salir = false;
 

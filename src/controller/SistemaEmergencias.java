@@ -92,9 +92,10 @@ public class SistemaEmergencias implements SujetoEmergencias {
             System.out.println("No hay recursos disponibles para esta emergencia.");
             return;
         }
-        System.out.println("-> Asignando recursos automáticamente...");
+        System.out.println("-> Estamos asignando recursos automáticamente...");
 
         if (emergencia instanceof Incendio) {
+            // Buscamos recursos disponibles
             for (IServicioDeEmergencia r : disponibles) {
                 if (r instanceof Bomberos) {
                     r.atenderEmergencia(emergencia);
@@ -102,6 +103,7 @@ public class SistemaEmergencias implements SujetoEmergencias {
                 }
             }
         } else if (emergencia instanceof AccidenteVehicular) {
+            // Buscamos recursos disponibles
             for (IServicioDeEmergencia r : disponibles) {
                 if (r instanceof Ambulancia) {
                     r.atenderEmergencia(emergencia);
@@ -109,6 +111,7 @@ public class SistemaEmergencias implements SujetoEmergencias {
                 }
             }
         } else if (emergencia instanceof Robo) {
+            // Buscamos recursos disponibles
             for (IServicioDeEmergencia r : disponibles) {
                 if (r instanceof Policia) {
                     r.atenderEmergencia(emergencia);
@@ -117,6 +120,14 @@ public class SistemaEmergencias implements SujetoEmergencias {
             }
         }
     }
-  
+    public void atenderEmergencia(Emergencia e) {
+        if (e.isAtendida()) {
+            System.out.println("Esta emergencia ya fue atendida.");
+            return;
+        }
+        //ESTE LO PUSE YO
+        System.out.println("-> Atendiendo emergencia: " + e.getDescripcion());
+        e.iniciarAtencion();
+
  
 }
